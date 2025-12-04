@@ -4,3 +4,6 @@
 -- insert into myentity (id, field) values(2, 'field-2');
 -- insert into myentity (id, field) values(3, 'field-3');
 -- alter sequence myentity_seq restart with 4;
+
+INSERT INTO tb_users (birthday, hash_expiration, id, gendertype, phone, "name", "password", hash_lost_pwd, mail)
+VALUES('1977-05-04', NULL, 1, 'MALE', '+5519998689623', 'André Luiz Trombetone', '123', NULL, 'altrombetone@gmail.com');

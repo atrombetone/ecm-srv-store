@@ -7,13 +7,14 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "tb_users")
 @Table(
         name = "tb_users",
         uniqueConstraints = @UniqueConstraint(columnNames = "mail")
 )
-public class LoginEntity extends PanacheEntity {
+public class UserEntity extends PanacheEntity {
     public Long id;
 
     @Column(length = 100)
@@ -45,4 +46,7 @@ public class LoginEntity extends PanacheEntity {
     @Size(max = 20)
     public GenderType genderType;
     
+    public static List<UserEntity> findByMailAndPassword(String mail, String password) {
+        return find("LOWER(mail) = ?1 AND LOWER(password) = ?2", mail, password).list();
+    }
 }
