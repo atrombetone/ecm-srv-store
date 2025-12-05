@@ -21,7 +21,7 @@ public class UserProvider implements IUserProvider {
         List<UserEntity> users = UserEntity.findByMailAndPassword(login, password);
         
         if (users == null || users.size() < 1)
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("User not found!");
         
         return mapper.toModel(users.get(0));
     }
