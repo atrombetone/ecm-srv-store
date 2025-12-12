@@ -1,10 +1,12 @@
 package com.atrombetone.domain.model;
 
 import com.atrombetone.application.shared.enums.GenderType;
+import com.atrombetone.application.shared.enums.UserRoleType;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class UserModel {
@@ -19,4 +21,5 @@ public class UserModel {
     private LocalDateTime hash_expiration;
     private GenderType genderType;
     private String token;
+    private List<UserRoleType> roles;
 }

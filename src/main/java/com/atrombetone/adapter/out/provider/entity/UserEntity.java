@@ -46,6 +46,9 @@ public class UserEntity extends PanacheEntity {
     @Size(max = 20)
     public GenderType genderType;
     
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<UserRolesEntity> roles;
+    
     public static List<UserEntity> findByMailAndPassword(String mail, String password) {
         return find("LOWER(mail) = ?1 AND LOWER(password) = ?2", mail, password).list();
     }

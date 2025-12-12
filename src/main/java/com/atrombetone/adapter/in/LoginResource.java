@@ -26,7 +26,7 @@ public class LoginResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    @Path("/login")
+    @Path("/do")
     public UserLoginResponse doLogin(UserLoginRequest request) throws Exception {
         UserModel userModel = userMapper.toModel(request);
         return userMapper.toResponse(userLoginUsecase.doLogin(userModel));
